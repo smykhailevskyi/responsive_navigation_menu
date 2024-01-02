@@ -1,5 +1,13 @@
 "use strict"
 
+const addActiveClassForParentElement = (arr) => {
+  arr.forEach(element => {
+    element.addEventListener("click", () => {
+      element.parentElement.classList.toggle("_active");
+    });
+  });
+}
+
 const isMobile = {
   Android: function() {
     return navigator.userAgent.match(/Android/i);
@@ -29,6 +37,12 @@ const isMobile = {
 
 if(isMobile.any()) {
   document.body.classList.add("_touch");
+
+  const menuArrows = document.querySelectorAll(".menu__arrow");
+
+  if(menuArrows.length > 0) {
+    addActiveClassForParentElement(menuArrows);
+  }
 } else {
   document.body.classList.add("_pc");
 }

@@ -127,12 +127,50 @@
   text-decoration: underline;
 }
 
+.menu__arrow {
+  display: none;
+}
+
 /* --------------- PC --------------- */
 body._pc .menu__list li:hover .menu__sub-list {
   opacity: 1;
   visibility: visible;
   transform: translate(0px, 0px);
   pointer-events: all;
+}
+
+/* --------------- Devices with touch screen --------------- */
+body._touch .menu__list li {
+  display: flex;
+  align-items: center;
+}
+
+bode._touch .menu__link {
+  flex: 1 1 auto;
+}
+
+body._touch .menu__arrow {
+  display: block;
+  width: 0;
+  height: 0;
+  margin: 0px 0px 0px 5px;
+  /* Animation for opening / closing arrow */
+  transition: transform 0.3s ease 0s;
+  /* Create rectangle for arrow */
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 10px solid #fff;
+}
+
+body._touch .menu__list li._active .menu__sub-list {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0px, 0px);
+  pointer-events: all;
+}
+
+body._touch .menu__list li._active .menu__arrow {
+  transform: rotate(-180deg);
 }
 
 /* Create flex container from menu list inside so that the menus line up */
