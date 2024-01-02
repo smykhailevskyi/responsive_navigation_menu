@@ -4,6 +4,7 @@
   min-height: 100%;
 }
 
+/* ------- Content ------- */
 .page {
   padding: 90px 0px 30px 0px;
 }
@@ -43,4 +44,108 @@
 .page__sub-title {
   font-size: 30px;
   margin: 0px 0px 20px 0px;
+}
+
+/* ------- Header ------- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: #050505;
+}
+/* Restricted and place in the center */
+.header__container {
+  max-width: 1200px;
+  margin: 0px auto;
+  /* Create flex container */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 30px;
+  /* Hat in the form of a 70 px die */
+  min-height: 70px;
+}
+
+.header__logo {
+  border-radius: 50%;
+  background-color: #fff;
+  position: relative;
+  z-index: 5;
+  width: 40px;
+  height: 40px;
+}
+
+/* ------- Header Main Menu List ------- */
+.header__menu {}
+
+.menu {}
+
+.menu__icon {}
+
+.menu__body {}
+
+.menu__list > li {
+  /* Sub Menu is positioned relative to li objects */
+  position: relative;
+  margin: 0px 0px 0px 20px;
+}
+
+.menu__link {
+  color: #fff;
+  font-size: 18px;
+}
+
+.menu__link:hover {
+  text-decoration: underline;
+}
+
+/* ------- Sub Menu List ------- */
+.menu__sub-list {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #1b8497;
+  padding: 15px;
+  min-width: 200px;
+}
+
+.menu__sub-list li {
+  margin: 0px 0px 10px 0px;
+}
+
+.menu__sub-list li:last-child {
+  margin: 0;
+}
+
+.menu__sub-link {
+  color: #fff;
+}
+
+.menu__sub-link:hover {
+  text-decoration: underline;
+}
+
+/* Create flex container from menu list inside so that the menus line up */
+/* Create flex container for screens with width more then 767 px */ 
+@media (min-width: 767px) {
+  .menu__list {
+    display: flex;
+    align-items: center;
+  }
+
+  .menu__list > li {
+    padding: 10px 0;
+  }
+
+  .menu__sub-list {
+    /* Drop menu on 10% */
+    transform: translate(0px, 10%);
+    opacity: 0;
+    visibility: hidden;
+    /* Mouse can not interact with sub list */
+    pointer-events: none;
+    transition: all 0.3s ease 0s;
+  }
 }
