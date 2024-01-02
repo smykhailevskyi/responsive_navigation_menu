@@ -127,6 +127,14 @@
   text-decoration: underline;
 }
 
+/* --------------- PC --------------- */
+body._pc .menu__list li:hover .menu__sub-list {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0px, 0px);
+  pointer-events: all;
+}
+
 /* Create flex container from menu list inside so that the menus line up */
 /* Create flex container for screens with width more then 767 px */ 
 @media (min-width: 767px) {
@@ -136,6 +144,8 @@
   }
 
   .menu__list > li {
+    /* Indents above and below expand the mouse pointer area 
+    so that the sub-menu does not collapse while we move the mouse */
     padding: 10px 0;
   }
 
